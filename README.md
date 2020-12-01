@@ -12,4 +12,4 @@ Hieronder vindt u de links naar de andere microservices:
 
 ## Diagram microservices
 In onderstaand diagram vindt de architectuur gebruikt in ons project.
-//TODO
+![Diagram microservices](images/diagram-microservices-dezoo.svg)
