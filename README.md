@@ -11,5 +11,5 @@ Hieronder vindt u de links naar de andere microservices:
 - [Verblijven](https://github.com/Ferwardo/dezoo-verblijven)
 
 ## Diagram microservices
-In onderstaand diagram vindt de architectuur gebruikt in ons project.
+In onderstaand diagram vindt de architectuur gebruikt in ons project.<br/>
 ![Diagram microservices](images/diagram-microservices-dezoo.svg)
