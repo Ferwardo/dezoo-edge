@@ -1,9 +1,12 @@
 package com.dezoo.edge.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Date;
 
 public class PersonnelMember {
 	//Fields
+	@JsonIgnore
 	private int Id;
 
 	private String personnelId;
