@@ -9,3 +9,7 @@ Hieronder vindt u de links naar de andere microservices:
 - [Personeel](https://github.com/Ferwardo/dezoo-personeel)
   
 - [Verblijven](https://github.com/Ferwardo/dezoo-verblijven)
+
+## Diagram microservices
+In onderstaand diagram vindt de architectuur gebruikt in ons project.
+//TODO
