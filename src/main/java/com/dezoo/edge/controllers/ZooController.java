@@ -4,6 +4,7 @@ import com.dezoo.edge.models.PersonnelMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public class ZooController {
 	private String residenceServiceBaseUrl;
 
 	//Personnel functions
-	//TODO add function to get personnel with the residence they work in
+	//TODO add function to get personnel with the residence they work in, both for all personnel and a single personnel member
 	/**
 	 * Gets all personnel from the personnel microservices
 	 * @return            a list of PersonnelMember object representing the personnel members of the zoo
@@ -44,7 +45,7 @@ public class ZooController {
 	}
 
 	/**
-	 * gets a personnel member from the personnel microservices using a personnelId
+	 * Gets a personnel member from the personnel microservices using a personnelId
 	 * @param personnelID The personnelId of the personnelMember that needs to be returned.
 	 * @return            One PersonnelMember corresponding to the given personnelId
 	 * @author            Ferwardo (Ferre Snyers)
@@ -55,8 +56,27 @@ public class ZooController {
 		PersonnelMember.class, personnelID);
 	}
 
+	/**
+	 * Add a new personnel member to the database via the personnel microservice
+	 * @param personnelMember The personnelId of the personnelMember that needs to be returned.
+	 * @return                The newly added personnel member
+	 * @author                Ferwardo (Ferre Snyers)
+	 */
 	@PostMapping("/personeel")
 	public PersonnelMember addPersonnelMember(@RequestBody PersonnelMember personnelMember){
-		return restTemplate.postForObject("http://"+personnelServiceBaseUrl+"/personnel",personnelMember,PersonnelMember.class);
+		return restTemplate.postForObject("http://"+personnelServiceBaseUrl+"/personnel",
+				personnelMember,PersonnelMember.class);
+	}
+
+	/**
+	 * Updates a personnel member via the personnel microservice
+	 * @param personnelMember The personnel member that has to be updated
+	 * @return                The updated personnel member
+	 * @author                Ferwardo (Ferre Snyers)
+	 */
+	@PutMapping("/personeel")
+	public PersonnelMember updatePersonnelMember(@RequestBody PersonnelMember personnelMember){
+		return restTemplate.exchange("http://"+personnelServiceBaseUrl+"/personnel",
+				HttpMethod.PUT, new HttpEntity<>(personnelMember), PersonnelMember.class).getBody();
 	}
 }
