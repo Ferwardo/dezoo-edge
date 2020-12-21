@@ -32,7 +32,6 @@ public class ZooController {
     private String residenceServiceBaseUrl;
 
     //Personnel functions
-    //TODO add function to get personnel with the residence they work in, both for all personnel and a single personnel member
 
     /**
      * Gets all personnel from the personnel microservices
@@ -103,6 +102,7 @@ public class ZooController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
+
 
     //TODO Animal Functions
     //TODO Residence Funtions
