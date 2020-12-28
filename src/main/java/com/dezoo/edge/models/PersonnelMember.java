@@ -47,7 +47,7 @@ public class PersonnelMember {
 		this.personelCategory = personelCategory;
 	}
 
-//    getters and setters
+	//getters and setters
 
 	public int getId() {
 		return Id;
