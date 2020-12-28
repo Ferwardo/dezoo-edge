@@ -15,7 +15,7 @@ import java.util.List;
 
 //@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
-public class ZooController {
+public class PersonnelController {
 
     //inject a restTemplate
     @Autowired
@@ -25,11 +25,11 @@ public class ZooController {
     @Value("${personnelService.baseurl}")
     private String personnelServiceBaseUrl;
 
-    @Value("${animalService.baseurl}")
-    private String animalServiceBaseUrl;
-
-    @Value("${residenceService.baseurl}")
-    private String residenceServiceBaseUrl;
+//    @Value("${animalService.baseurl}")
+//    private String animalServiceBaseUrl;
+//
+//    @Value("${residenceService.baseurl}")
+//    private String residenceServiceBaseUrl;
 
     //Personnel functions
 
