@@ -190,5 +190,22 @@ public class PersonnelUnitTests {
                 requestTo(new URI("http://" + personnelServiceBaseUrl + "/personnel/fs161100")))
                 .andExpect(method(HttpMethod.DELETE))
                 .andRespond(withStatus(HttpStatus.OK));
+
+        mockMvc.perform(delete("/personeel/{personnelID}", "fs161100")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void whenDeletePersonnelMember_thenStatusInternalServerError() throws Exception {
+        mockServer.expect(ExpectedCount.once(),
+                requestTo(new URI("http://" + personnelServiceBaseUrl + "/personnel/df151099")))
+                .andExpect(method(HttpMethod.DELETE))
+                .andRespond(withStatus(HttpStatus.INTERNAL_SERVER_ERROR));
+
+        mockMvc.perform(delete("/personeel/{personnelID}", "df151099")
+                .contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().is5xxServerError());
+
     }
 }

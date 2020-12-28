@@ -102,8 +102,4 @@ public class PersonnelController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
     }
-
-
-    //TODO Animal Functions
-    //TODO Residence Funtions
 }
