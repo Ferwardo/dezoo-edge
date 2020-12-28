@@ -128,6 +128,7 @@ public class PersonnelIntegrationTests {
                 .andExpect(status().isOk());
 
     }
+
     @Test
     public void whenDeletePersonnelMember_thenStatusInternalServerError() throws Exception {
         mockMvc.perform(delete("/personeel/{personnelID}", "df151099")
