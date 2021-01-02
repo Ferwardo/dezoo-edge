@@ -15,6 +15,7 @@ import java.util.List;
 
 //@CrossOrigin(origins = "*", allowedHeaders = "*", methods = {RequestMethod.DELETE, RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT})
 @RestController
+@RequestMapping("personeel")
 public class PersonnelController {
 
     //inject a restTemplate
@@ -25,21 +26,13 @@ public class PersonnelController {
     @Value("${personnelService.baseurl}")
     private String personnelServiceBaseUrl;
 
-//    @Value("${animalService.baseurl}")
-//    private String animalServiceBaseUrl;
-//
-//    @Value("${residenceService.baseurl}")
-//    private String residenceServiceBaseUrl;
-
-    //Personnel functions
-
     /**
      * Gets all personnel from the personnel microservices
      *
      * @return a list of PersonnelMember object representing the personnel members of the zoo
      * @author Ferwardo (Ferre Snyers)
      */
-    @GetMapping("/personeel")
+    @GetMapping
     public List<PersonnelMember> getPersonnelmembers() {
         ResponseEntity<List<PersonnelMember>> responseEntityPersonnelMembers =
                 restTemplate.exchange("http://" + personnelServiceBaseUrl + "/personnel",
@@ -55,7 +48,7 @@ public class PersonnelController {
      * @return One PersonnelMember corresponding to the given personnelId
      * @author Ferwardo (Ferre Snyers)
      */
-    @GetMapping("/personeel/{personnelID}")
+    @GetMapping("/{personnelID}")
     public PersonnelMember getPersonnelMemberByPersonnelId(@PathVariable String personnelID) {
         return restTemplate.getForObject("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}",
                 PersonnelMember.class, personnelID);
@@ -64,11 +57,11 @@ public class PersonnelController {
     /**
      * Add a new personnel member to the database via the personnel microservice
      *
-     * @param personnelMember The personnelId of the personnelMember that needs to be returned.
+     * @param personnelMember The personnelMember that has to be added.
      * @return The newly added personnel member
      * @author Ferwardo (Ferre Snyers)
      */
-    @PostMapping("/personeel")
+    @PostMapping
     public PersonnelMember addPersonnelMember(@RequestBody PersonnelMember personnelMember) {
         return restTemplate.postForObject("http://" + personnelServiceBaseUrl + "/personnel",
                 personnelMember, PersonnelMember.class);
@@ -81,7 +74,7 @@ public class PersonnelController {
      * @return The updated personnel member
      * @author Ferwardo (Ferre Snyers)
      */
-    @PutMapping("/personeel")
+    @PutMapping
     public PersonnelMember updatePersonnelMember(@RequestBody PersonnelMember personnelMember) {
         return restTemplate.exchange("http://" + personnelServiceBaseUrl + "/personnel",
                 HttpMethod.PUT, new HttpEntity<>(personnelMember), PersonnelMember.class).getBody();
@@ -91,9 +84,10 @@ public class PersonnelController {
      * Deletes a personnel member
      *
      * @param personnelID the personnel id (not db id) of the personnel member to be deleted
-     * @return a status of either 200 for
+     * @return a status of either 200 when it is deleted or a 5xx status when something went wrong
+     * @author Ferwardo (Ferre Snyers)
      */
-    @DeleteMapping("/personeel/{personnelID}")
+    @DeleteMapping("/{personnelID}")
     public ResponseEntity<PersonnelMember> deletePersonnelMember(@PathVariable String personnelID) {
         try {
             restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", personnelID);

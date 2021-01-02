@@ -12,29 +12,29 @@ public class Animal {
     private String name;
     private String kind;
     private Date dateOfBirth;
-    private boolean isVertebrate;
+    private boolean vertebrate;
     private String classification;
 
     //Constructors
     public Animal() {
     }
 
-    public Animal(String animalId, String name, String species, Date dateOfBirth, boolean isVertebrate, String classification) {
+    public Animal(String animalId, String name, String species, Date dateOfBirth, boolean vertebrate, String classification) {
         this.animalId = animalId;
         this.name = name;
         this.kind = species;
         this.dateOfBirth = dateOfBirth;
-        this.isVertebrate = isVertebrate;
+        this.vertebrate = vertebrate;
         this.classification = classification;
     }
 
-    public Animal(int id, String animalId, String name, String species, Date dateOfBirth, boolean isVertebrate, String classification) {
+    public Animal(int id, String animalId, String name, String species, Date dateOfBirth, boolean vertebrate, String classification) {
         Id = id;
         this.animalId = animalId;
         this.name = name;
         this.kind = species;
         this.dateOfBirth = dateOfBirth;
-        this.isVertebrate = isVertebrate;
+        this.vertebrate = vertebrate;
         this.classification = classification;
     }
 
@@ -80,11 +80,11 @@ public class Animal {
     }
 
     public boolean isVertebrate() {
-        return isVertebrate;
+        return vertebrate;
     }
 
     public void setVertebrate(boolean vertebrate) {
-        isVertebrate = vertebrate;
+        this.vertebrate = vertebrate;
     }
 
     public String getClassification() {
