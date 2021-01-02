@@ -24,11 +24,13 @@ public class AnimalController {
     private String animalServiceBaseUrl;
 
     /**
-     * Gets all animals from the animal microservice
-     * @return a list of all animals
+     * Gets all animals from the animal microservice.
+     *
+     * @return a list of all animals.
+     * @author Christophe Neefs
      */
     @GetMapping
-    private List<Animal> getAnimals(){
+    private List<Animal> getAnimals() {
         ResponseEntity<List<Animal>> responseEntityAnimals =
                 restTemplate.exchange("http://" + animalServiceBaseUrl + "/animals",
                         HttpMethod.GET, null, new ParameterizedTypeReference<List<Animal>>() {
@@ -37,16 +39,31 @@ public class AnimalController {
     }
 
     /**
-     * Gets an from the animal microservices using an animalID
+     * Gets an animal from the animal microservices using an animalID.
      *
      * @param animalID The animalId of the animal that needs to be returned.
      * @return One Animal corresponding to the given animalId.
-     * @author Ferwardo (Ferre Snyers)
+     * @author Christophe Neefs
      */
     @GetMapping("/{animalID}")
     public Animal getAnimalByAnimalId(@PathVariable String animalID) {
-        return restTemplate.getForObject("http://" + animalServiceBaseUrl + "/{animalID}",
+        return restTemplate.getForObject("http://" + animalServiceBaseUrl + "/animals/{animalID}",
                 Animal.class, animalID);
+    }
+
+    /**
+     * Gets all vertebrates from the animal microservice.
+     *
+     * @return A list of all vertebrates.
+     * @author Christophe Neefs
+     */
+    @GetMapping("/gewervelden")
+    public List<Animal> getVertebrates() {
+        ResponseEntity<List<Animal>> responseEntityAnimals =
+                restTemplate.exchange("http://" + animalServiceBaseUrl + "/animals/getVertebrates",
+                        HttpMethod.GET, null, new ParameterizedTypeReference<List<Animal>>() {
+                        });
+        return responseEntityAnimals.getBody();
     }
 
     /**
@@ -54,7 +71,7 @@ public class AnimalController {
      *
      * @param animal The animal that needs to be added.
      * @return The newly added animal.
-     * @author Ferwardo (Ferre Snyers)
+     * @author Christophe Neefs
      */
     @PostMapping
     public Animal addAnimal(@RequestBody Animal animal) {
@@ -67,11 +84,11 @@ public class AnimalController {
      *
      * @param animal The animal that has to be updated.
      * @return The updated animal.
-     * @author Ferwardo (Ferre Snyers)
+     * @author Christophe Neefs
      */
-    @PutMapping
-    public Animal updateAnimal(@RequestBody Animal animal) {
-        return restTemplate.exchange("http://" + animalServiceBaseUrl + "/animal",
+    @PutMapping("/{animalID}")
+    public Animal updateAnimal(@PathVariable String animalID, @RequestBody Animal animal) {
+        return restTemplate.exchange("http://" + animalServiceBaseUrl + "/animals/" + animalID,
                 HttpMethod.PUT, new HttpEntity<>(animal), Animal.class).getBody();
     }
 
@@ -80,12 +97,12 @@ public class AnimalController {
      *
      * @param animalID the animal id (not db id) of the animal to be deleted
      * @return a status of either 200 when it is deleted or a 5xx status when something went wrong
-     * @author Ferre Snyers
+     * @author Christophe Neefs
      */
     @DeleteMapping("/{animalID}")
     public ResponseEntity<Animal> deleteAnimal(@PathVariable String animalID) {
         try {
-            restTemplate.delete("http://" + animalServiceBaseUrl + "/animal/{animalID}", animalID);
+            restTemplate.delete("http://" + animalServiceBaseUrl + "/animals/{animalID}", animalID);
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();

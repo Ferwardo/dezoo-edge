@@ -26,9 +26,6 @@ public class PersonnelController {
     @Value("${personnelService.baseurl}")
     private String personnelServiceBaseUrl;
 
-//    @Value("${residenceService.baseurl}")
-//    private String residenceServiceBaseUrl;
-
     /**
      * Gets all personnel from the personnel microservices
      *
