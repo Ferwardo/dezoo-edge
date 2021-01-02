@@ -36,7 +36,7 @@ public class PersonnelIntegrationTests {
     private ObjectMapper mapper = new ObjectMapper();
 
     @BeforeEach
-    public void initializeDB() throws Exception{
+    public void initialiseDB() throws Exception{
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         PersonnelMember personnelMember1 = new PersonnelMember("fs161100", "Ferre", "Snyers", format.parse("16/11/2000"), "Gestelstraat 21", "2250", "+32441439", "Administration");
         PersonnelMember personnelMember2 = new PersonnelMember("cn170999", "Christophe", "Neefs", format.parse("17/09/1999"), "Lier", "2500", "", "Rabbits");

@@ -56,7 +56,7 @@ public class PersonnelUnitTests {
     private List<PersonnelMember> personnelMemberList;
 
     @BeforeEach
-    public void initialize() throws ParseException {
+    public void initialise() throws ParseException {
         personnelMember1 = new PersonnelMember("fs161100", "Ferre", "Snyers", format.parse("16/11/2000"), "Gestelstraat 21", "2250", "+32441439", "Administration");
         personnelMember2 = new PersonnelMember("cn170999", "Christophe", "Neefs", format.parse("17/09/1999"), "Lier", "2500", "", "Rabbits");
         personnelMember3 = new PersonnelMember("rh031000", "Robbe", "Heremans", format.parse("03/10/2000"), "Westerlo", "2260", "", "Lions");

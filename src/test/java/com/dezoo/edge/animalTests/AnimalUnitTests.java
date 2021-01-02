@@ -53,7 +53,7 @@ public class AnimalUnitTests {
     private List<Animal> animalList;
 
     @BeforeEach
-    public void initialize() throws Exception {
+    public void initialise() throws Exception {
         mockServer = MockRestServiceServer.createServer(restTemplate);
 
         animal1 = new Animal(1,"r001", "Flappie", "Rabbit", format.parse("16/04/2017"), true, "mammal");
