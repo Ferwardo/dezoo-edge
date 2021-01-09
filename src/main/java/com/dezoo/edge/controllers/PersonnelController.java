@@ -30,7 +30,6 @@ public class PersonnelController {
      * Gets all personnel from the personnel microservices
      *
      * @return a list of PersonnelMember object representing the personnel members of the zoo
-     * @author Ferwardo (Ferre Snyers)
      */
     @GetMapping
     public List<PersonnelMember> getPersonnelmembers() {
@@ -46,7 +45,6 @@ public class PersonnelController {
      *
      * @param personnelID The personnelId of the personnelMember that needs to be returned.
      * @return One PersonnelMember corresponding to the given personnelId
-     * @author Ferwardo (Ferre Snyers)
      */
     @GetMapping("/{personnelID}")
     public PersonnelMember getPersonnelMemberByPersonnelId(@PathVariable String personnelID) {
@@ -59,7 +57,6 @@ public class PersonnelController {
      *
      * @param personnelMember The personnelMember that has to be added.
      * @return The newly added personnel member
-     * @author Ferwardo (Ferre Snyers)
      */
     @PostMapping
     public PersonnelMember addPersonnelMember(@RequestBody PersonnelMember personnelMember) {
@@ -72,7 +69,6 @@ public class PersonnelController {
      *
      * @param personnelMember The personnel member that has to be updated
      * @return The updated personnel member
-     * @author Ferwardo (Ferre Snyers)
      */
     @PutMapping
     public PersonnelMember updatePersonnelMember(@RequestBody PersonnelMember personnelMember) {
@@ -85,7 +81,6 @@ public class PersonnelController {
      *
      * @param personnelID the personnel id (not db id) of the personnel member to be deleted
      * @return a status of either 200 when it is deleted or a 5xx status when something went wrong
-     * @author Ferwardo (Ferre Snyers)
      */
     @DeleteMapping("/{personnelID}")
     public ResponseEntity<PersonnelMember> deletePersonnelMember(@PathVariable String personnelID) {

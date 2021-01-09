@@ -27,7 +27,6 @@ public class AnimalController {
      * Gets all animals from the animal microservice.
      *
      * @return a list of all animals.
-     * @author Christophe Neefs
      */
     @GetMapping
     private List<Animal> getAnimals() {
@@ -43,7 +42,6 @@ public class AnimalController {
      *
      * @param animalID The animalId of the animal that needs to be returned.
      * @return One Animal corresponding to the given animalId.
-     * @author Christophe Neefs
      */
     @GetMapping("/{animalID}")
     public Animal getAnimalByAnimalId(@PathVariable String animalID) {
@@ -55,7 +53,6 @@ public class AnimalController {
      * Gets all vertebrates from the animal microservice.
      *
      * @return A list of all vertebrates.
-     * @author Christophe Neefs
      */
     @GetMapping("/gewervelden")
     public List<Animal> getVertebrates() {
@@ -71,7 +68,6 @@ public class AnimalController {
      *
      * @param animal The animal that needs to be added.
      * @return The newly added animal.
-     * @author Christophe Neefs
      */
     @PostMapping
     public Animal addAnimal(@RequestBody Animal animal) {
@@ -84,7 +80,6 @@ public class AnimalController {
      *
      * @param animal The animal that has to be updated.
      * @return The updated animal.
-     * @author Christophe Neefs
      */
     @PutMapping("/{animalID}")
     public Animal updateAnimal(@PathVariable String animalID, @RequestBody Animal animal) {
@@ -97,7 +92,6 @@ public class AnimalController {
      *
      * @param animalID the animal id (not db id) of the animal to be deleted
      * @return a status of either 200 when it is deleted or a 5xx status when something went wrong
-     * @author Christophe Neefs
      */
     @DeleteMapping("/{animalID}")
     public ResponseEntity<Animal> deleteAnimal(@PathVariable String animalID) {
