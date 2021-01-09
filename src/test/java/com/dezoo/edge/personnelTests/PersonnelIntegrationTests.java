@@ -36,18 +36,18 @@ public class PersonnelIntegrationTests {
     private ObjectMapper mapper = new ObjectMapper();
 
     @BeforeEach
-    public void initialiseDB() throws Exception{
+    public void initialiseDB() throws Exception {
         SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
         PersonnelMember personnelMember1 = new PersonnelMember("fs161100", "Ferre", "Snyers", format.parse("16/11/2000"), "Gestelstraat 21", "2250", "+32441439", "Administration");
         PersonnelMember personnelMember2 = new PersonnelMember("cn170999", "Christophe", "Neefs", format.parse("17/09/1999"), "Lier", "2500", "", "Rabbits");
         PersonnelMember personnelMember3 = new PersonnelMember("rh031000", "Robbe", "Heremans", format.parse("03/10/2000"), "Westerlo", "2260", "", "Lions");
-
-        restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "fs161100");
-        restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "cn170999");
-        restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "rh031000");
         try {
+            restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "fs161100");
+            restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "cn170999");
+            restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "rh031000");
             restTemplate.delete("http://" + personnelServiceBaseUrl + "/personnel/{personnelID}", "dj151099");
-        }catch (Exception ignored){}
+        } catch (Exception ignored) {
+        }
 
         restTemplate.postForObject("http://" + personnelServiceBaseUrl + "/personnel",
                 personnelMember1, PersonnelMember.class);
