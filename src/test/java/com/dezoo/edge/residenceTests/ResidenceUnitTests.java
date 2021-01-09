@@ -160,7 +160,7 @@ public class ResidenceUnitTests {
     }
 
     @Test
-    public void whenUpdateResidenc_thenReturnResidenceJson() throws Exception {
+    public void whenUpdateResidence_thenReturnResidenceJson() throws Exception {
         Residence updatedResidence = new Residence("leeuwen001", "fs161100", "l001", "Pride Rock", 4, "1995", false);
 
         mockServer.expect(ExpectedCount.once(),
