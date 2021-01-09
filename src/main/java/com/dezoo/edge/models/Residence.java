@@ -16,17 +16,19 @@ public class Residence {
     public Residence() {
     }
 
-    public Residence(String personnelID, String animalID, String name, int maxAnimals, String buildYear, boolean nocturnal) {
-        this.personeelID = personnelID;
-        this.dierID = animalID;
+    public Residence(String verblijfID, String personeelID, String dierID, String name, int maxDieren, String bouwJaar, boolean nocturnal) {
+        this.verblijfID = verblijfID;
+        this.personeelID = personeelID;
+        this.dierID = dierID;
         this.name = name;
-        this.maxDieren = maxAnimals;
-        this.bouwJaar = buildYear;
+        this.maxDieren = maxDieren;
+        this.bouwJaar = bouwJaar;
         this.nocturnal = nocturnal;
     }
 
-    public Residence(String id, String personeelID, String dierID, String name, int maxDieren, String bouwJaar, boolean nocturnal) {
+    public Residence(String id, String verblijfID, String personeelID, String dierID, String name, int maxDieren, String bouwJaar, boolean nocturnal) {
         this.id = id;
+        this.verblijfID = verblijfID;
         this.personeelID = personeelID;
         this.dierID = dierID;
         this.name = name;
