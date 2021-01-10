@@ -24,17 +24,6 @@ public class PersonnelMember {
 	public PersonnelMember() {
 	}
 
-	public PersonnelMember(int id, String personnelId, String firstName, String lastName, Date dateOfBirth, String address, String postalCode, String privatePhoneNumber, String personelCategory) {
-		Id = id;
-		this.personnelId = personnelId;
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dateOfBirth = dateOfBirth;
-		this.address = address;
-		this.postalCode = postalCode;
-		this.privatePhoneNumber = privatePhoneNumber;
-		this.personelCategory = personelCategory;
-	}
 
 	public PersonnelMember(String personnelId, String firstName, String lastName, Date dateOfBirth, String address, String postalCode, String privatePhoneNumber, String personelCategory) {
 		this.personnelId = personnelId;

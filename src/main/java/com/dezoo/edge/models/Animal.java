@@ -28,16 +28,6 @@ public class Animal {
         this.classification = classification;
     }
 
-    public Animal(int id, String animalId, String name, String species, Date dateOfBirth, boolean vertebrate, String classification) {
-        Id = id;
-        this.animalId = animalId;
-        this.name = name;
-        this.kind = species;
-        this.dateOfBirth = dateOfBirth;
-        this.vertebrate = vertebrate;
-        this.classification = classification;
-    }
-
     //getters & setters
     public int getId() {
         return Id;
