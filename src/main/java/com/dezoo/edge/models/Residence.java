@@ -37,14 +37,6 @@ public class Residence {
         this.nocturnal = nocturnal;
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getPersoneelID() {
         return personeelID;
     }
